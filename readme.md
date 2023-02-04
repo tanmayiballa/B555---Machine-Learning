@@ -1,4 +1,4 @@
-B555 (Machine Learning) is one of the challenging courses at Indiana University, Bloomington. It deals with mathematical approaches to machine learning algorithms.
+B555 (Machine Learning) is one of the challenging courses at Indiana University, Bloomington. It deals with in-depth mathematical algorithms in machine learning.
 
 This course has given me exposure to the low-level functionality of an algorithm, loss functions, kernels, and their implementations from scratch in Python.
 
