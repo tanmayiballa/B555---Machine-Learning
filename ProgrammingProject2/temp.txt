@@ -1,0 +1,46 @@
+def Model_Selection(train_x, train_y):
+    alpha = random.randint(1,10)
+    beta = random.randint(1,10)
+
+    new_alpha = alpha
+    new_beta = beta
+
+    Lambda = beta*(np.dot(np.transpose(train_x), train_x))
+    eigen_value, eigen_vec = np.linalg.eig(Lambda)
+    N = train_x.shape[0]
+    it = 0
+
+    while(True):
+        print("Iteration: ", it)
+        print(alpha, beta)
+        TCA = calc_piTpi(train_x)
+
+        identity = np.identity(TCA.shape[0])
+        lambda_matrix = alpha * identity
+
+        S_N_inv =  np.dot(lambda_val, lambda_matrix) + beta*TCA
+        S_N = np.linalg.inv(S_N_inv)
+
+        ## Calculating m_N
+
+        m_N = np.dot(np.dot((beta*S_N), np.transpose(train_x)), train_y)
+
+        ## Calculating gamma:
+
+        gamma_vec = eigen_value/(eigen_value+alpha)
+        gamma = np.sum(gamma_vec)
+
+        new_alpha = gamma/np.square((np.linalg.norm(m_N)))
+
+        phMn = (np.dot(train_x,m_N) - train_y)
+        new_beta = (N - gamma)/np.square(np.linalg.norm(phMn))
+
+        if(np.round(new_beta,4) == np.round(beta,4) and np.round(new_alpha,4) == np.round(alpha,4)):
+            print(new_alpha, new_beta)
+            print("End of iteration")
+            break
+        alpha = new_alpha
+        beta = new_beta
+        it+=1
+
+    return new_alpha, new_beta
