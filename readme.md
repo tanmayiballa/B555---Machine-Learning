@@ -8,8 +8,8 @@ The projects shared here are a few such implementations which I have worked on d
 
 **ProgrammingProject1:** Unigram Model
 
-**ProgrammingProject2:**
+**ProgrammingProject2:** Bayesian Linear Regression
 
-**ProgrammingProject3:**
+**ProgrammingProject3:** Linear Classification Models
 
-**ProgrammingProject4:**
+**ProgrammingProject4:** Latent Dirichlet Allocation (LDA)
